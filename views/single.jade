@@ -1,0 +1,11 @@
+extends layout
+include components
+
+block body
+
+    .container.page-multi
+        mixin header(location)
+
+        ol
+            mixin day_weather(weather_summary, 0)
+            mixin hourly_weather(hourly_weather, 1)

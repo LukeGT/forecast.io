@@ -1,0 +1,49 @@
+{
+  "name": "forecast.io-frontend",
+  "version": "0.0.0",
+  "description": "Frontend to forecast.io's API",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test/**/*.js",
+    "start": "node index.js",
+    "generate-docs": "jsdoc -c jsdoc.conf",
+    "lint": "jshint lib client test index.js config.js",
+    "style": "jscs lib client test index.js config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LukeGT/forecast.io-frontend"
+  },
+  "keywords": [
+    "forecast.io",
+    "weather"
+  ],
+  "author": "Luke Tsekouras",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LukeGT/forecast.io-frontend/issues"
+  },
+  "homepage": "https://github.com/LukeGT/forecast.io-frontend",
+  "dependencies": {
+    "express": "^4.12.3",
+    "jade": "^1.9.2",
+    "lodash": "^3.7.0",
+    "moment": "^2.10.2",
+    "node-bourbon": "^4.2.1-beta1",
+    "node-sass": "^2.1.1",
+    "node-sass-middleware": "^0.5.0",
+    "q": "^1.2.0",
+    "request": "^2.55.0",
+    "url-join": "0.0.1"
+  },
+  "devDependencies": {
+    "chai": "^2.2.0",
+    "chai-as-promised": "^5.0.0",
+    "jscs": "^1.12.0",
+    "jsdoc": "^3.3.0-beta3",
+    "jshint": "^2.7.0",
+    "mocha": "^2.2.4",
+    "sinon": "^1.14.1",
+    "supertest": "^0.15.0"
+  }
+}

@@ -1,0 +1,11 @@
+extends layout
+include components
+
+block body
+
+    .container.page-single
+        mixin header(location)
+
+        ol
+            each weather, index in daily_weather
+                mixin day_weather(weather, index)

@@ -1,0 +1,16 @@
+{
+  "node": true,
+  "latedef": true,
+  "undef": true,
+  "unused": "vars",
+  "nonew": true,
+  "notypeof": true,
+  "shadow": "outer",
+  "mocha": true,
+  "eqeqeq": true,
+  "globals": {
+    "$": false,
+    "window": false,
+    "navigator": false
+  }
+}

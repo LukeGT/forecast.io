@@ -1,0 +1,67 @@
+mixin header(location)
+    section.header
+        h1 The Forecast
+        .input-group
+            span.input-group-btn
+                button#current-location.btn.btn-lg.btn-default(type=button)
+                    span.glyphicon.glyphicon-screenshot
+                    span.glyphicon.glyphicon-refresh
+            input#address.input-lg(
+                type='text',
+                class='form-control',
+                placeholder='Enter a location',
+                value=location,
+                autofocus
+            )
+            span.input-group-btn
+                button#check-weather.btn.btn-lg.btn-primary(type=submit) Check the weather
+
+mixin day_weather(weather, index)
+    li.weather(class="delay-#{index}")
+        button.more-details.btn.btn-default(data-day-of-week=weather.day_of_week) More Details
+        h2= weather.time
+        p.text-summary= weather.summary
+        ul.row
+            li.col-xs-2.summary
+                div.content
+                    span.wi(class=weather.summary_icon)
+                p Outlook
+            li.col-xs-2.temperature
+                div.content
+                    span.min-temp= weather.temperature_min
+                    span.temperature-symbol= weather.temperature_symbol
+                    text  
+                    span.max-temp= weather.temperature_max
+                    span.temperature-symbol= weather.temperature_symbol
+                p Temperature
+            li.col-xs-2.precipitation
+                div.content
+                    text= weather.precipitation_chance
+                    text %
+                p Chance of #{weather.precipitation_type}
+            li.col-xs-2.wind-speed
+                div.content
+                    span.wi(class=weather.wind_speed_icon)
+                p Wind speed
+            li.col-xs-2.wind-direction
+                div.content
+                    span.wi.wi-wind-default(class=weather.wind_direction_icon)
+                p Wind direction
+            li.col-xs-2.moon-phase
+                div.content
+                    span.wi(class=weather.moon_icon)
+                p Moon phase
+
+mixin hourly_weather(weather, index)
+    li.weather(class="delay-#{index}")
+        ol.row
+            for hour in weather
+                li.col-xs-2.hourly
+                    div.content
+                        span.wi(class=hour.summary_icon)
+                    p
+                        span.time= hour.time
+                        span.temperature
+                            text= hour.temperature
+                            text= hour.temperature_symbol
+                    p= hour.summary

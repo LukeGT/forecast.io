@@ -1,0 +1,198 @@
+@import "bourbon";
+
+body, html {
+    height: 100%;
+}
+
+body {
+    background-image: url('http://miriadna.com/desctopwalls/images/max/Ideal-landscape.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    padding: 50px;
+    color: black;
+}
+
+h1 {
+    font-size: 4em;
+}
+
+ul, ol, li {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+@mixin panel {
+    background-color: hsla(240, 30, 100, 0.9);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
+}
+
+@include keyframes(fall-in) {
+
+    from {
+        opacity: 0;
+        @include transform( translate3d(0, -40px, 100px) rotateX( 20deg ) );
+    }
+
+    to {
+        opacity: 1;
+        @include transform( translate3d(0, 0, 0) rotateX( 0deg ) );
+    }
+}
+
+@include keyframes(rotate) {
+
+    from {
+        @include transform( rotate(0deg) );
+    }
+
+    to {
+        @include transform( rotate(360deg) );
+    }
+}
+
+.loading {
+    cursor: wait;
+}
+
+.container {
+    @include perspective( 500px );
+    margin-bottom: 100px;
+}
+
+.page-index {
+    section.header {
+        @include animation( fall-in 400ms );
+    }
+}
+
+section.header {
+
+    h1 {
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+
+    margin-top: 50px;
+    padding: 30px;
+
+    @include panel;
+}
+
+.weather {
+
+    margin-top: 20px;
+    padding: 20px;
+
+    @include panel;
+    @include animation-name( fall-in );
+    @include animation-duration( 400ms );
+    @include animation-fill-mode( both );
+
+    h2 {
+        margin-top: 0;
+        margin-bottom: 5px;
+    }
+
+    li {
+        text-align: center;
+    }
+
+    button.more-details {
+        float: right;
+    }
+
+    p.text-summary {
+        font-size: 1.2em;
+        margin-bottom: 20px;
+        margin-top: 0;
+    }
+
+    .content {
+
+        margin-bottom: 10px;
+        white-space: nowrap;
+        height: 50px;
+
+        .wi {
+            font-size: 50px;
+        }
+    }
+
+    li.temperature {
+        .content {
+            line-height: 50px;
+            font-size: 35px;
+            font-weight: bold;
+            p {
+                margin: 0;
+            }
+        }
+        .temperature-symbol {
+            font-size: 16px;
+        }
+        .min-temp {
+            color: hsl(230, 75, 40);
+        }
+        .max-temp {
+            color: hsl(10, 75, 40);
+        }
+    }
+
+    li.precipitation .content {
+        color: hsl(200, 100, 50);
+        font-size: 40px;
+    }
+
+    li.hourly {
+
+        margin: 15px 0;
+
+        .time {
+            font-size: 1.2em;
+            margin-right: 10px;
+        }
+
+        .temperature {
+            font-size: 1.3em;
+            font-weight: bold;
+        }
+
+        p {
+            margin: 0;
+        }
+    }
+}
+
+#current-location {
+
+    .glyphicon {
+        top: 3px;
+        color: #444;
+    }
+
+    .glyphicon-refresh {
+        display: none;
+        @include animation( rotate 1s linear infinite );
+    }
+
+    &.loading {
+        .glyphicon-refresh {
+            display: inherit;
+        }
+        .glyphicon-screenshot {
+            display: none;
+        }
+    }
+}
+
+#check-weather {
+    width: 184px;
+}
+
+@for $a from 0 through 10 {
+    .delay-#{$a} {
+        @include animation-delay( #{$a * 50}ms );
+    }
+}
