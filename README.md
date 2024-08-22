@@ -76,7 +76,7 @@ I much prefer the use of promises to that of callbacks, and as a result I have u
 
 # License
 
-> Copyright (c) 2015(s), Luke Tsekouras <luke.tsekouras@gmail.com>
+> Copyright (c) 2015(s), Luke Tsekouras
 
 > Permission to use, copy, modify, and/or distribute this software for any purpose with or without fee is hereby granted, provided that the above copyright notice and this permission notice appear in all copies.
 
